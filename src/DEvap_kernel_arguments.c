@@ -1,0 +1,7 @@
+elem_d_lc_shdfac,
+elem_d_soil_smcdry,
+elem_d_soil_smcmax,
+elem_d_ps_fxexp,
+elem_d_wf_edir,
+elem_d_wf_etp,
+elem_d_ws_sh2o

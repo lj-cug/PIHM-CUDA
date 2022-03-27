@@ -1,0 +1,46 @@
+Hi,
+
+Is there any maximum limit to the number of arguments in cuda kernel?
+
+cuda_kernel<<nblocks, block_size>>(arg1, arg2, arg3, arg4,…argn)…how many arguments (arg) I can pass at most? Is there any limit?
+
+My code runs but the result is not right when I pass more than 24 args thru cuda kernel.
+
+I am working on MSVS2008, ver 9.0. Win7 64x.
+
+-------------------------------------------------------------------
+From the CUDA Progamming Guide (http://docs.nvidia.com/cuda/cuda-c-programming-guide/#axzz4hwnrc3hY 27):
+
+E.3.9.3. Function Parameters
+global function parameters are passed to the device via constant memory and are limited to 4 KB.
+
+As I recall, the 256-byte limit applied to GPUs with compute capability 1.x, which used different memory for kernel argument passing and which is no longer supported by CUDA.
+
+----------------------------------------------------------------
+
+43 * 8 = 344 bytes, which is too large. The argument size limit is 256 bytes. You will have to build and pass a structure, or write the addresses of the malloced storage onto some device symbols and avoid passing them as argument completely.
+
+---------------------------------------------------------------------
+The compiler really should give an error message; there really is a limit on the size of the argument list. This is an NVIDIA CUDA limitation, not a limit imposed by CUDA Fortran vs. CUDA C. The NVIDIA argument list limit is 256 bytes. A four-byte integer takes four bytes, a pointer takes 8 bytes in the 64-bit comiler, 4 bytes in the 32-bit compiler. Real takes 4 bytes, double precision takes 8. If the function has assumed-shape array arguments, then the compiler passes a descriptor with the array, and the descriptor is rather large; (8+6dim)+intsize + 2pointersize bytes, where dim is the number of dimensions.
+
+双精度 最多： 256/8= 32 个 形参.
+单精度 最多： 256/4 = 64 个
+
+We will file a request that the compiler check the argument limit and issue a meaningful error message if it is exceeded. Thank you for your comment.
+
+
+-----------------------------------------------------------
+If your data structures are already in global memory, then you can just pass a pointer in as the kernel argument.
+
+On a related note, the limit for kernel arguments is 4KB for devices of compute capability 2.x and higher:
+
+global function parameters are passed to the device:
+
+via shared memory and are limited to 256 bytes on devices of compute capability 1.x,
+via constant memory and are limited to 4 KB on devices of compute capability 2.x and higher.
+device and global functions cannot have a variable number of arguments.
+
+
+
+
+

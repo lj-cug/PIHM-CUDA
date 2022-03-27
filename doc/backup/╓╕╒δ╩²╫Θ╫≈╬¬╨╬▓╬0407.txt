@@ -1,0 +1,152 @@
+二级指针、数组指针、二维数组、指针数组作为函数形参时可传入的实参
+
+1 传参规则：
+
+a.当二级指针作为函数形参时，能作为函数实参的是二级指针，指针数组，一级指针的地址
+b.当数组指针作为函数形参时，能作为函数实参的是二维数组，数组指针
+c.当二维数组作为函数形参时，能作为函数实参的是二维数组，数组指针
+d.当指针数组作为函数形参时，能作为函数实参的是指针数组，二级指针,一级指针的地址
+
+2、实例验证：
+
+#include <stdio.h>
+#include <stdlib.h>
+
+void fun1(int **pp)  // 指针数组作为形参，变成二级指针
+{
+    printf("fun1\n");
+}
+void fun2(int(*a_p)[5])
+{
+    printf("fun2\n");
+}
+void fun3(int t_d_a[][5])
+{
+    printf("fun3\n");
+}
+void fun4(int *p_a[5])
+{
+    printf("fun4\n");
+}
+
+int main()
+{
+    int *p_a[5];          //指针数组
+    int **pp = NULL;      //二级指针
+    int *p = NULL;        //一级指针
+	
+    int t_d_a[5][5];      //二维数组
+    int a[5];             //一维数组
+    int(*a_p)[5] = &a;    //数组指针
+
+    fun1(p_a);
+    fun1(pp);
+    fun1(&p);
+    //fun1(t_d_a);
+    //fun1(a_p);
+    printf("\n");
+
+    //fun2(p_a);
+    //fun2(pp);
+    //fun2(&p);
+    fun2(t_d_a);
+    fun2(a_p);
+    printf("\n");
+
+    //fun3(p_a);
+    //fun3(pp);
+    //fun3(&p);
+    fun3(t_d_a);
+    fun3(a_p);
+    printf("\n");
+
+    fun4(p_a);
+    fun4(pp);
+    fun4(&p);
+    //fun4(t_d_a);
+    //fun4(a_p);
+    printf("\n");
+
+    system("pause");
+    return 0;
+}
+
+以上代码我放开注释的任意一条语句，都会报错为形参与实参的类型不兼容。
+
+PS：调试环境为vs2013
+------------------------------------------------------------------
+
+指针数组作为参数传递可实现传递第二维不确定的二维数组
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+typedef long long ll;
+
+#define frewri freopen("1.ou","w",stdout)
+const int maxn=3e5+7;
+const ll mod=1e9+7;
+int ar[maxn],n,m,k;
+int arr[10][10];
+
+void func(int *aa[],int n){
+    for(int i=0;i<n;i++){
+        for(int j=0;j<10;j++)cout<<aa[i][j]<<" ";cout<<endl;
+    }
+}
+
+int a2[10][10];
+
+int main()
+{
+    int *aa[maxn];   // 指针数组
+    for(int i=0;i<10;i++){
+        for(int j=0;j<10;j++) arr[i][j]=i+j;
+    }
+	
+    for(int i=0;i<10;i++){
+        for(int j=0;j<10;j++) a2[i][j]=i+j+100;
+    }
+	
+    for(int i=0;i<10;i++)
+	   aa[i]=arr[i];
+    func(aa,10);
+	
+    for(int i=0;i<10;i++)
+	   aa[i]=a2[i];
+    func(aa,10);
+
+    return 0;
+}
+
+
+------  指针数组作为CUDA核函数的形参  --------------
+int *d_a=NULL;
+int *d_b=NULL;
+cudaMalloc((void**)&d_a,sizeof(int)*32);
+cudaMalloc((void**)&d_b,sizeof(int)*32);
+
+cudaMemcpy(d_a,a,sizeof(int)*32,cudaMemcpyHostToDevice);
+cudaMemcpy(d_b,b,sizeof(int)*32,cudaMemcpyHostToDevice);
+
+int *h_batch[]={d_a, d_b};  // 注意:实际上是设备上的一级指针数组
+int **d_batch=NULL;         // 设备上的二级指针
+cudaMalloc((void***)&d_batch,sizeof(h_batch));  // CUDA上的二级指针空间的分配
+cudaMemcpy(d_batch,h_batch,sizeof(h_batch),cudaMemcpyHostToDevice);  // 一级指针空间，拷贝到二级指针空间
+// 上述的数据拷贝，h_batch已经在device上了，为什么是cudaMemcpyHostToDevice ?
+
+
+// execute kernel function
+dim3 gridSize(1,1);
+dim3 blockSize(32,1);
+func<<<gridSize,blockSize>>>(d_batch);
+
+// copy data from device to host
+cudaMemcpy(h_batch,d_batch,sizeof(d_batch),cudaMemcpyDeviceToHost);
+cudaMemcpy(a,d_a,sizeof(int)*32,cudaMemcpyDeviceToHost);
+cudaMemcpy(b,d_b,sizeof(int)*32,cudaMemcpyDeviceToHost);
+
+cudaFree(d_a);
+cudaFree(d_b);
+cudaFree(d_batch);

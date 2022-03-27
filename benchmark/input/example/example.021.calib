@@ -1,0 +1,53 @@
+KSATH           5.000
+KSATV           2.000
+KINF            1.000
+KMACSATH        3.500
+KMACSATV        1.000
+DINF            1.000
+DROOT           1.000
+DMAC            1.600
+POROSITY        0.850
+ALPHA           1.000
+BETA            2.238
+MACVF           5.000
+MACHF           5.000
+VEGFRAC         1.000
+ALBEDO          1.000
+ROUGH           1.000
+EC              1.000
+ETT             1.000
+EDIR            1.000
+ROUGH_RIV       5.000
+KRIVH           1.000
+KRIVV           1.000
+BEDTHCK         1.000
+RIV_DPTH        1.000
+RIV_WDTH        1.000
+
+LSM_CALIBRATION
+DRIP            1.000
+CMCMAX          2.000
+RS              0.850
+CZIL            8.765
+FXEXP           1.000
+CFACTR          1.000
+RGL             1.000
+HS              1.000
+REFSMC          0.950
+WLTSMC          1.000
+
+BGC_CALIBRATION
+MORTALITY       9.000
+SLA             1.000
+
+RT_CALIBRATION
+RATE            0.000
+SSA             0.000
+GWINFLUX        0.000
+PRCPCONC        0.000
+INITCONC        0.000
+XSORPTION       0.000
+
+SCENARIO
+PRCP            1.000
+SFCTMP          0.000

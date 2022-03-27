@@ -1,0 +1,18 @@
+Let a single thread do it
+
+if (threadIdx.x == 0) {
+
+  data2[0] = 1;
+
+  data2[1] = 2;
+
+  // etc
+
+}
+
+__syncthreads();
+or let multiple threads based on their index do it if it is many elements.
+
+data2[threadIdx.x] = threadIdx.x;
+
+__syncthreads();

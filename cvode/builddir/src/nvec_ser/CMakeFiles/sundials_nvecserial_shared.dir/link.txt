@@ -1,0 +1,1 @@
+/usr/bin/cc     -shared -Wl,--enable-auto-import -o cygsundials_nvecserial-2.dll -Wl,--out-implib,libsundials_nvecserial.dll.a -Wl,--major-image-version,2,--minor-image-version,7 CMakeFiles/sundials_nvecserial_shared.dir/nvector_serial.c.o CMakeFiles/sundials_nvecserial_shared.dir/__/sundials/sundials_math.c.o 

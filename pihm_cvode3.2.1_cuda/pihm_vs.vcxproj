@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{893E8A6D-F300-4C80-A8F5-09E4CB1E91CE}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>pihm_vs</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;_SUNDIALS_v3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\src\include;D:\GPGPU-dev\SUNDIALS_GPU\sundials-3.2.1\include;D:\GPGPU-dev\SUNDIALS_GPU\sundials-3.2.1\build\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\GPGPU-dev\SUNDIALS_GPU\sundials-3.2.1\build\src\nvec_ser\Release;D:\GPGPU-dev\SUNDIALS_GPU\sundials-3.2.1\build\src\cvode\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sundials_nvecserial.lib;sundials_cvode.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;_SUNDIALS_v3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\src\include;D:\GPGPU-dev\SUNDIALS_GPU\sundials-3.2.1\include;D:\GPGPU-dev\SUNDIALS_GPU\sundials-3.2.1\build\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\GPGPU-dev\SUNDIALS_GPU\sundials-3.2.1\build\src\nvec_ser\Release;D:\GPGPU-dev\SUNDIALS_GPU\sundials-3.2.1\build\src\cvode\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sundials_nvecserial.lib;sundials_cvode.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;_SUNDIALS_v3;_CVODE_CUDA;_NOAH_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\src\include;D:\GPGPU-dev\SUNDIALS_GPU\sundials-3.2.1\include;D:\GPGPU-dev\SUNDIALS_GPU\sundials-3.2.1\build\include;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <OpenMPSupport>false</OpenMPSupport>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>D:\GPGPU-dev\SUNDIALS_GPU\sundials-3.2.1\build\src\nvec_cuda\Release;D:\GPGPU-dev\SUNDIALS_GPU\sundials-3.2.1\build\src\cvode\Release;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\lib\x64;D:\cygwin\home\MM-PIHM-0.10\pihm_cuda_lib\x64\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sundials_nveccuda.lib;sundials_cvode.lib;cudart.lib;cudadevrt.lib;pihm_cuda.lib;pihm_cuda.device-link.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>D:\cygwin\home\MM-PIHM-0.10\pihm_benchmark\pihm_cuda.exe</OutputFile>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\custom_io.c" />
+    <ClCompile Include="..\src\forcing.c" />
+    <ClCompile Include="..\src\free_mem.c" />
+    <ClCompile Include="..\src\free_mem_cuda.c" />
+    <ClCompile Include="..\src\initialize.c" />
+    <ClCompile Include="..\src\initialize_cuda.c" />
+    <ClCompile Include="..\src\init_forc.c" />
+    <ClCompile Include="..\src\init_lc.c" />
+    <ClCompile Include="..\src\init_mesh.c" />
+    <ClCompile Include="..\src\init_river.c" />
+    <ClCompile Include="..\src\init_soil.c" />
+    <ClCompile Include="..\src\init_topo.c" />
+    <ClCompile Include="..\src\main.c" />
+    <ClCompile Include="..\src\map_output.c" />
+    <ClCompile Include="..\src\noah\lsm_func.c" />
+    <ClCompile Include="..\src\noah\lsm_init.c" />
+    <ClCompile Include="..\src\noah\lsm_read.c" />
+    <ClCompile Include="..\src\noah\topo_radn.c" />
+    <ClCompile Include="..\src\optparse.c" />
+    <ClCompile Include="..\src\pihm.c" />
+    <ClCompile Include="..\src\print.c" />
+    <ClCompile Include="..\src\read_alloc.c" />
+    <ClCompile Include="..\src\read_att.c" />
+    <ClCompile Include="..\src\read_bc.c" />
+    <ClCompile Include="..\src\read_calib.c" />
+    <ClCompile Include="..\src\read_forc.c" />
+    <ClCompile Include="..\src\read_func.c" />
+    <ClCompile Include="..\src\read_ic.c" />
+    <ClCompile Include="..\src\read_lai.c" />
+    <ClCompile Include="..\src\read_lc.c" />
+    <ClCompile Include="..\src\read_mesh.c" />
+    <ClCompile Include="..\src\read_para.c" />
+    <ClCompile Include="..\src\read_river.c" />
+    <ClCompile Include="..\src\read_soil.c" />
+    <ClCompile Include="..\src\read_tecplot.c" />
+    <ClCompile Include="..\src\soil.c" />
+    <ClCompile Include="..\src\spa\spa.c" />
+    <ClCompile Include="..\src\spinup.c" />
+    <ClCompile Include="..\src\time_func.c" />
+    <ClCompile Include="..\src\util_func.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\include\custom_io.h" />
+    <ClInclude Include="..\src\include\elem_struct.h" />
+    <ClInclude Include="..\src\include\optparse.h" />
+    <ClInclude Include="..\src\include\pihm.h" />
+    <ClInclude Include="..\src\include\pihm_const.h" />
+    <ClInclude Include="..\src\include\pihm_func.h" />
+    <ClInclude Include="..\src\include\pihm_input_struct.h" />
+    <ClInclude Include="..\src\include\pihm_struct.h" />
+    <ClInclude Include="..\src\include\river_struct.h" />
+    <ClInclude Include="..\src\include\spa.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

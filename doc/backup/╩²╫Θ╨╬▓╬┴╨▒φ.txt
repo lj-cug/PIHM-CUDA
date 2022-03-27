@@ -1,0 +1,197 @@
+/* elem_d related arguments */
+    int *elem_d_attrib_soil_type, int *elem_d_attrib_lc_type,             
+    int *elem_d_attrib_bc_type[NUM_EDGE],int *elem_d_attrib_meteo_type, 
+	int *elem_d_attrib_lai_type,                                                 /* Element attribute */          
+    double *elem_d_topo_area, double *elem_d_topo_x, double *elem_d_topo_y,                               
+    double *elem_d_topo_zmin, double *elem_d_topo_zmax,                                
+	double *elem_d_topo_edge[NUM_EDGE], double *elem_d_topo_nabrdist[NUM_EDGE],        
+    double *elem_d_topo_nabr_x[NUM_EDGE], double *elem_d_topo_nabr_y[NUM_EDGE],  /* Topography parameters */                 
+    double *elem_d_soil_depth,double *elem_d_soil_ksath, double *elem_d_soil_ksatv,     
+    double *elem_d_soil_kinfv, double *elem_d_soil_dinf, double *elem_d_soil_alpha,     
+    double *elem_d_soil_beta, double *elem_d_soil_porosity, double *elem_d_soil_smcmax,        
+    double *elem_d_soil_smcmin,double *elem_d_soil_smcwlt, double *elem_d_soil_smcref,    
+    double *elem_d_soil_dmac, double *elem_d_soil_kmach, double *elem_d_soil_kmacv,  
+    double *elem_d_soil_areafv, double *elem_d_soil_areafh,                     /* Soil parameters */
+    double *elem_d_lc_shdfac, double *elem_d_lc_shdmin, double *elem_d_lc_shdmax,     
+    double *elem_d_lc_laimin, double *elem_d_lc_laimax, double *elem_d_lc_snup,         
+    double *elem_d_lc_cfactr, double *elem_d_lc_emissmax, double *elem_d_lc_emissmin,     
+    double *elem_d_lc_albedomax, double *elem_d_lc_albedomin, double *elem_d_lc_z0max,  
+    double *elem_d_lc_z0min, double *elem_d_lc_rough, double *elem_d_lc_cmcfactr,       
+    int *elem_d_lc_bare, int *elem_d_lc_isurban,           /* Land cover parameters */ 
+    double *elem_d_epc_rsmin, double *elem_d_epc_rgl, double *elem_d_epc_hs,       
+    double *elem_d_epc_topt, double *elem_d_epc_rsmax,     /* Ecophysiological parameters */    
+    double *elem_d_ps_rzd, double *elem_d_ps_rc, double *elem_d_ps_pc,                
+    double *elem_d_ps_proj_lai, double *elem_d_ps_rcs, double *elem_d_ps_rct,        
+    double *elem_d_ps_rcq, double *elem_d_ps_rcsoil, double *elem_d_ps_albedo,          
+    double *elem_d_ps_zlvl, double *elem_d_ps_zlvl_wind, double *elem_d_ps_sfcspd,         
+    double *elem_d_ps_rh, double *elem_d_ps_sfcprs,        /* Physical states */    
+    double *elem_d_ws_surf, double *elem_d_ws_unsat, double *elem_d_ws_gw, double *elem_d_ws_sneqv,                  
+    double *elem_d_ws_cmcmax,  double *elem_d_ws_cmc,  double *elem_d_ws_surfh,    /* Water states */                                
+    double *elem_d_ws0_surf, double *elem_d_ws0_unsat, double *elem_d_ws0_gw,  
+	double *elem_d_ws0_sneqv, double *elem_d_ws0_cmcmax,                                      
+    double *elem_d_ws0_cmc, double *elem_d_ws0_surfh,        /* Initial Water states */	     
+    double *elem_d_wf_ovlflow[NUM_EDGE], double *elem_d_wf_subsurf[NUM_EDGE],   
+    double *elem_d_wf_prcp, double *elem_d_wf_pcpdrp, double *elem_d_wf_infil,                        
+    double *elem_d_wf_rechg, double *elem_d_wf_drip, double *elem_d_wf_edir,                       
+    double *elem_d_wf_ett, double *elem_d_wf_ec, double *elem_d_wf_etp,                           
+    double *elem_d_wf_eta, double *elem_d_wf_edir_surf, double *elem_d_wf_edir_unsat,                      
+    double *elem_d_wf_edir_gw, double *elem_d_wf_ett_unsat, double *elem_d_wf_ett_gw,                     
+    double *elem_d_wf_esnow,          /* Water fluxes */         
+    double *elem_d_es_sfctmp,         /* Energy states */
+    double *elem_d_ef_soldn,          /* Energy fluxes */ 
+    double *elem_d_bc_head[NUM_EDGE], double *elem_d_bc_flux[NUM_EDGE],      /* Boundary conditions */
+    int *elem_d_node[NUM_EDGE], int *elem_d_nabr[NUM_EDGE], int *elem_d_ind, /* Elements' geometric numbers */           
+/* river_d related arguments */           
+    int *river_d_attrib_riverbc_type,    /* River attribute */
+    double *river_d_topo_area, double *river_d_topo_x, double *river_d_topo_y,                 
+    double *river_d_topo_zmin,double *river_d_topo_zmax, double *river_d_topo_zbed,                            
+    double *river_d_topo_node_zmax, double *river_d_topo_dist_left, 
+	double *river_d_topo_dist_right,                  /* River topography parameters */   
+    double *river_d_ws_stage, double *river_d_ws_gw,  /* River water states */
+    double *river_d_wf_rivflow[NUM_RIVFLX],           /* River water fluxes */   
+    double *river_d_shp_depth, int    *river_d_shp_intrpl_ord,  double *river_d_shp_coeff,     
+    double *river_d_shp_length, double *river_d_shp_width,       /* River shape parameters */     
+    double *river_d_matl_rough, double *river_d_matl_cwr, double *river_d_matl_ksath,         
+    double *river_d_matl_ksatv, double *river_d_matl_bedthick, double *river_d_matl_porosity,     
+    double *river_d_matl_smcmin,     /* River mathmatic modeling parameters */	
+    double *river_d_bc_head, double *river_d_bc_flux,  /* River boundary conditions */  
+    int *river_d_ind, int *river_d_leftele, int *river_d_rightele,      
+    int *river_d_fromnode, int *river_d_tonode, int *river_d_down  /* River geometric numbers */
+       
+  	
+调用函数的形式参数：   
+/* elem_d related arguments */
+    elem_d_attrib_soil_type, elem_d_attrib_lc_type,             
+    &elem_d_attrib_bc_type[NUM_EDGE],elem_d_attrib_meteo_type, 
+	elem_d_attrib_lai_type,                                         /* Element attribute */          
+    elem_d_topo_area, elem_d_topo_x, elem_d_topo_y,                               
+    elem_d_topo_zmin, elem_d_topo_zmax,                                
+	&elem_d_topo_edge[NUM_EDGE], &elem_d_topo_nabrdist[NUM_EDGE],        
+    &elem_d_topo_nabr_x[NUM_EDGE], &elem_d_topo_nabr_y[NUM_EDGE],  /* Topography parameters */                 
+    elem_d_soil_depth, elem_d_soil_ksath,  elem_d_soil_ksatv,     
+    elem_d_soil_kinfv,  elem_d_soil_dinf,  elem_d_soil_alpha,     
+    elem_d_soil_beta, elem_d_soil_porosity,  elem_d_soil_smcmax,        
+    elem_d_soil_smcmin, elem_d_soil_smcwlt,  elem_d_soil_smcref,    
+    elem_d_soil_dmac, elem_d_soil_kmach, elem_d_soil_kmacv,  
+    elem_d_soil_areafv, elem_d_soil_areafh,                     /* Soil parameters */
+    elem_d_lc_shdfac,  elem_d_lc_shdmin,  elem_d_lc_shdmax,     
+    elem_d_lc_laimin,  elem_d_lc_laimax,  elem_d_lc_snup,         
+    elem_d_lc_cfactr,  elem_d_lc_emissmax,  elem_d_lc_emissmin,     
+    elem_d_lc_albedomax,  elem_d_lc_albedomin,  elem_d_lc_z0max,  
+    elem_d_lc_z0min, elem_d_lc_rough,  elem_d_lc_cmcfactr,       
+    elem_d_lc_bare, elem_d_lc_isurban,                         /* Land cover parameters */   
+    elem_d_epc_rsmin, elem_d_epc_rgl, elem_d_epc_hs,       
+    elem_d_epc_topt, elem_d_epc_rsmax,                         /* Ecophysiological parameters */   	
+    elem_d_ps_rzd, elem_d_ps_rc,  elem_d_ps_pc,                
+    elem_d_ps_proj_lai,  elem_d_ps_rcs,  elem_d_ps_rct,        
+    elem_d_ps_rcq,  elem_d_ps_rcsoil,  elem_d_ps_albedo,          
+    elem_d_ps_zlvl,  elem_d_ps_zlvl_wind,  elem_d_ps_sfcspd,         
+    elem_d_ps_rh,  elem_d_ps_sfcprs,                           /* Physical states */    
+    elem_d_ws_surf,  elem_d_ws_unsat,  elem_d_ws_gw,  elem_d_ws_sneqv,                  
+    elem_d_ws_cmcmax,   elem_d_ws_cmc,   elem_d_ws_surfh,      /* Water states */                                
+    elem_d_ws0_surf,  elem_d_ws0_unsat,  elem_d_ws0_gw,  
+	elem_d_ws0_sneqv,  elem_d_ws0_cmcmax,                                      
+    elem_d_ws0_cmc,  elem_d_ws0_surfh,                         /* Initial Water states */	     
+    &elem_d_wf_ovlflow[NUM_EDGE],  &elem_d_wf_subsurf[NUM_EDGE],   
+    elem_d_wf_prcp,  elem_d_wf_pcpdrp,  elem_d_wf_infil,                        
+    elem_d_wf_rechg,  elem_d_wf_drip,  elem_d_wf_edir,                       
+    elem_d_wf_ett,  elem_d_wf_ec,  elem_d_wf_etp,                           
+    elem_d_wf_eta,  elem_d_wf_edir_surf,  elem_d_wf_edir_unsat,                      
+    elem_d_wf_edir_gw,  elem_d_wf_ett_unsat,  elem_d_wf_ett_gw,                     
+    elem_d_wf_esnow,          /* Water fluxes */         
+    elem_d_es_sfctmp,         /* Energy states */
+    elem_d_ef_soldn,          /* Energy fluxes */ 
+    &elem_d_bc_head[NUM_EDGE], &elem_d_bc_flux[NUM_EDGE],       /* Boundary conditions */
+    &elem_d_node[NUM_EDGE], &elem_d_nabr[NUM_EDGE], elem_d_ind, /* Elements' geometric numbers */ 
+	
+/* river_d related arguments */           
+    river_d_attrib_riverbc_type,                                /* River attribute */
+    river_d_topo_area, river_d_topo_x, river_d_topo_y,                 
+    river_d_topo_zmin, river_d_topo_zmax, river_d_topo_zbed,                            
+    river_d_topo_node_zmax, river_d_topo_dist_left, 
+	river_d_topo_dist_right,                      /* River topography parameters */   
+    river_d_ws_stage, river_d_ws_gw,              /* River water states */
+    &river_d_wf_rivflow[NUM_RIVFLX],              /* River water fluxes */   
+    river_d_shp_depth, river_d_shp_intrpl_ord, river_d_shp_coeff,     
+    river_d_shp_length, river_d_shp_width,        /* River shape parameters */     
+    river_d_matl_rough, river_d_matl_cwr, river_d_matl_ksath,         
+    river_d_matl_ksatv, river_d_matl_bedthick, river_d_matl_porosity,     
+    river_d_matl_smcmin,                            /* River mathmatic modeling parameters */	
+    river_d_bc_head, river_d_bc_flux,               /* River boundary conditions */  
+    river_d_ind, river_d_leftele, river_d_rightele,      
+    river_d_fromnode, river_d_tonode, river_d_down  /* River geometric numbers */
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	  
+double *elem_d_topo_nabrdist[NUM_EDGE]   指针数组作为形参的定义：double **，
+  
+头文件中的类型定义：   
+/* elem_d related arguments */
+    int *, int *,             
+    int *elem_d_attrib_bc_type[NUM_EDGE],int *, 
+	int *,                                                 /* Element attribute */          
+    double *, double *, double *,                               
+    double *, double *,                                
+	double *, double *elem_d_topo_nabrdist[NUM_EDGE],        
+    double *, double *elem_d_topo_nabr_y[NUM_EDGE],  /* Topography parameters */                 
+    double *, double *, double *,     
+    double *, double *, double *,     
+    double *, double *, double *,        
+    double *, double *, double *,    
+    double *, double *, double *,  
+    double *, double *,                     /* Soil parameters */
+    double *, double *, double *,     
+    double *, double *, double *,         
+    double *, double *, double *,     
+    double *, double *, double *,  
+    double *, double *, double *,       
+    int *, int *,           /* Land cover parameters */    
+	
+	
+	
+	
+    double *, double *, double *,                
+    double *, double *, double *,        
+    double *, double *, double *,          
+    double *, double *, double *,         
+    double *, double *,        /* Physical states */    
+    double *, double *, double *, double *,                  
+    double *, double *,  double *,        /* Water states */                                
+    double *, double *, double *,  
+	double *, double *,                                      
+    double *, double *,        /* Initial Water states */	     
+    double *elem_d_wf_ovlflow[NUM_EDGE], double *elem_d_wf_subsurf[NUM_EDGE],   
+    double *, double *, double *,                        
+    double *, double *, double *,                       
+    double *, double *, double *,                           
+    double *, double *, double *,                      
+    double *, double *, double *,                     
+    double *,          /* Water fluxes */         
+    double *,         /* Energy states */
+    double *,          /* Energy fluxes */ 
+    double *elem_d_bc_head[NUM_EDGE], double *elem_d_bc_flux[NUM_EDGE],      /* Boundary conditions */
+    int *elem_d_node[NUM_EDGE], int *elem_d_nabr[NUM_EDGE], int *, /* Elements' geometric numbers */           
+/* river_d related arguments */           
+    int *,    /* River attribute */
+    double *, double *, double *,                 
+    double *,double *, double *,                            
+    double *, double *, 
+	double *,                  /* River topography parameters */   
+    double *, double *,        /* River water states */
+    double *river_d_wf_rivflow[NUM_RIVFLX],    /* River water fluxes */   
+    double *, int    *,  double *,     
+    double *, double *,       /* River shape parameters */     
+    double *, double *, double *,         
+    double *, double *, double *,     
+    double *,     /* River mathmatic modeling parameters */	
+    double *, double *,  /* River boundary conditions */  
+    int *, int *, int *,      
+    int *, int *, int *,  /* River geometric numbers */	

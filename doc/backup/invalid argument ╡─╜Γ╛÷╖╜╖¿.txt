@@ -1,0 +1,37 @@
+CUDA异常处理篇——invalid argument 的解决方法
+
+今天在编写cuda程序时，遇到一个很奇怪的问题, 就是在调用核函数时，返回cuda错误信息，报invalid argument 。
+
+cudaError_t error = cudaGetLastError();
+printf("CUDA error: %s\n", cudaGetErrorString(error));
+
+
+一般的理解是参数异常，有可能是参数过大，一种是非法参数。经过检查，参数传递错误基本排除。
+
+最搞笑的是，我把核函数内部代码注释掉，参数为空，结果竟然还会报这个错！
+
+__global__ void test() {
+	const int tid = blockIdx.x;
+	//printf("(tid: %d)", tid);
+}
+于是我猜想可能是之前存储分配的时候出现问题，经过检查，果不其然，找到一个二阶地址从Host到Device传递时出现的错误。
+
+由于cuda在申请显存的过程中是手动完成的，地址赋值如果出现错误，其实是不会报错，因为计算机并不知道你的地址赋值出现错误。但是当开辟显存空间的时候，就会出现问题，导致cuda错误列表会记录，并且之后所有的计算全部会出现错误。
+
+当出现该问题时，我的一个解决方法是，在每一次申请显存空间的时候，都使用代码cudaError_t来返回一下错误，如下：
+
+cudaMalloc(**1**);
+cudaMemcpy(**1**, cudaMemcpyHostToDevice);
+cudaError_t error = cudaGetLastError();
+printf("CUDA error: %s\n", cudaGetErrorString(error));
+ 
+cudaMalloc(**2**);
+cudaMemcpy(**2**, cudaMemcpyHostToDevice);
+cudaError_t error = cudaGetLastError();
+printf("CUDA error: %s\n", cudaGetErrorString(error));
+ 
+cudaMalloc(**3**);
+cudaMemcpy(**3**, cudaMemcpyHostToDevice);
+cudaError_t error = cudaGetLastError();
+printf("CUDA error: %s\n", cudaGetErrorString(error));
+当在那个位置出现cuda的报错信息，那么就直接找出错位置之前的显存申请代码就可以了。

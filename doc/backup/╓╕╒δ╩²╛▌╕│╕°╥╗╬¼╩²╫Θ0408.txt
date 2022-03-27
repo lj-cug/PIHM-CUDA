@@ -1,0 +1,18 @@
+/* 由于CVode_CUDA调用的要求，将指针数组地址分别赋给一维数组，再代入核函数 */
+int *elem_d_attrib_bc_type0   =   pihm_d->elem_d_attrib_bc_type[0]; 
+int *elem_d_attrib_bc_type1   =   pihm_d->elem_d_attrib_bc_type[1];
+int *elem_d_attrib_bc_type2   =   pihm_d->elem_d_attrib_bc_type[2];		
+
+下面的指针数组处理，类似
+
+
+修改 _arguments.c 代码中的，诸如&elem_d_attrib_bc_type[NUM_EDGE]  为一维数组
+
+
+
+
+
+
+
+
+

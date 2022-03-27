@@ -1,0 +1,25 @@
+src_局部变量：  elem_d和river_d 以局部变量代入核函数； elem_d, river_d都是结构体
+
+src_src_CVode通过_全局结构体形参:  elem_d和river_d 以全局变量代入核函数； elem_d, river_d都是结构体
+
+以上的问题是：以结构体形参代入核函数，均导致：Error code 700的错误！
+
+经过CVODE_v4.0.0的示例代码cv_AdvDiff_kry_cuda_managed.cu的测试，
+以数组（按地址传递的形参）代入核函数，是没有问题的！
+
+
+src_is_sm_et_cuda.7z  是计算正确的代码，包含很多输出中间变量用于DEBUG的代码。
+在我的笔记本上执行（显卡很低端），计算结果在一段时间后与CPU版本的代码计算结果逐渐偏离，为什么呢？与显卡有关？
+确定：CUDA计算误差不是其他核函数引起的。 可能是CVode引起的，CPU版本的串行和OpenMP的计算结果也有一点偏离，但不大。
+
+
+src_Noah_二级指针
+src_Noah_指针数组：  对Noah模型中的2D数组参数，使用二级指针和指针数组，都会引起CVode的错误:failed to copy vector data from device to host.
+
+
+
+__global__函数调用下面两种设备函数的效率有差别吗？
+__device__ foo(a){}
+__device__ foo(int tid, *a){}   // a[tid]
+
+

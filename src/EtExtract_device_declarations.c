@@ -1,0 +1,12 @@
+realtype *elem_d_ws_gw,
+realtype *elem_d_ws_surfh,
+realtype *elem_d_wf_edir,
+realtype *elem_d_wf_edir_surf,
+realtype *elem_d_wf_edir_unsat,
+realtype *elem_d_wf_edir_gw,
+realtype *elem_d_soil_depth,
+realtype *elem_d_soil_dinf,
+realtype *elem_d_ps_rzd,
+realtype *elem_d_wf_ett_gw,
+realtype *elem_d_wf_ett_unsat,
+realtype *elem_d_wf_ett

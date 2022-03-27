@@ -1,0 +1,65 @@
+（1）创建一个Nvector_Cuda的数组：
+CV_Y = N_VNew_Cuda(NumStateVar());      // NVector类型
+
+（2）创建一个与CV_Y有UVA的主机上的数组
+realtype *CV_Y_CPU = N_VGetHostArrayPointer_Cuda(CV_Y);     // 数组
+
+（3）将CV_Y_CPU 拷贝到GPU上：
+N_VCopyToDevice_Cuda(CV_Y);
+
+几次主机与设备之间的数据拷贝：
+initialize.c 的InitVar：N_VCopyToDevice_Cuda(CV_Y);   把CV_Y_CPU拷贝到CV_Y (GPU)  仅1次
+ode.c 的 ode：          N_VCopyFromDevice_Cuda(CV_Y); 把CV_Y (GPU)拷贝到 y (CPU)  每步迭代都要
+                        N_VCopyToDevice_Cuda(CV_Ydot); 把dy(CPU)拷贝到CV_Ydot(GPU)每步迭代都要
+update.c的summary：     N_VCopyFromDevice_Cuda(CV_Y); 计算结果输出  GPU --> CPU   输出频次
+
+ODE中的2种循环：
+for (i = 0; i < nelem; i++)   // 流域离散单元的
+
+for (i = 0; i < nriver; i++)  // 河道分段的
+
+
+问题：
+[1] CPU上初始化的CV_Y (PIHM_OpenMP)怎么拷贝到 realtype *CV_Y_CPU 数组上去？
+
+[2] PIHM_Cuda编译：Ode_cuda 先用nvcc编译成lib库，然后用VS编译其他的C程序，连接Ode_cuda.lib
+为什么C程序必须编译为C++才能连接lib，编译成C不行。
+参考下面这个帖子：
+https://forums.developer.nvidia.com/t/nvcc-forces-c-compilation-of-cu-files/25070/8
+I was facing the same problem adapting a C project to use CUDA, just like memstick reported. I’ve been looking for a proper solution and this suggestion by tera did the trick for me. I’ve just put [font=“Courier New”]extern “C”[/font] before the function definition in my [font=“Courier New”]cudaWrapper.cu[/font] file and the linking part among C and CUDA object files worked fine.
+
+To be more specific, I did this in my C file:
+
+// File: calc.c
+
+extern int func_B( int x, int y);
+
+int func_A()
+
+{
+
+   // code, code, then
+
+   c = func_B( a, b );
+
+// more code, then
+
+   return result;
+
+}
+And this, in my CUDA file:
+
+// File: cudaWrapper.cu
+
+extern "C" int func_B( int x, int y )
+
+{
+
+   // C and CUDA code, then
+
+   return result;
+
+}
+So, no more annoying linking messages about “undefined references” to [font=“Courier New”]func_B[/font] defined in the CUDA file.
+
+Thank you very much. To both of you.

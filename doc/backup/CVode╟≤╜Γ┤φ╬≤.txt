@@ -1,0 +1,26 @@
+[CVODE ERROR]  CVode
+  At t = 0.0486644 and h = 2.71262e-007, the corrector convergence test failed r
+epeatedly or with |h| = hmin.
+
+½â¾ö£º
+	/* Setting abstol for CUDA */
+	int size = NumStateVar();
+	abstol = N_VNew_Cuda(size);
+	set_nvector_cuda(abstol, &pihm->ctrl.abstol, size);
+	
+	// In CUDA, abstol should also be in GPU.  2021.04.23
+	cv_flag = CVodeSVtolerances(cvode_mem, (realtype)pihm->ctrl.reltol,
+		                                    abstol);  	
+
+
+[CVODE ERROR]  cvInitialSetup
+  Initial ewt has component(s) equal to zero (illegal).
+
+CVODE error -22
+
+Exiting from SolveCVode...
+
+
+
+
+											

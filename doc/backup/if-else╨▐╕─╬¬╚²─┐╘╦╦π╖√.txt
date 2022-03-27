@@ -1,0 +1,147 @@
+三目运算符：
+a = (x > 100) ? 0 : 1;
+
+分配给变量 a 的值将为 0 或 1，具体是哪个则取决于 x 是否大于 100。该语句具有与以下 if-else 语句相同的逻辑：
+
+if (x > 100)
+    a = 0 ;
+else
+    a = 1;
+
+	
+	
+	
+有的if-else结构很长
+比如： __device__ void RiverFlow() 中的：
+
+	if (river_d_down[tid] > 0)
+	{
+		if (river_d_attrib_riverbc_type[tid] != 0)
+		{
+			  river_d_wf_rivflow0[tid] +=
+				BoundFluxRiver(river_d_attrib_riverbc_type[tid],tid, 
+#include "river_device_arguments.c" 
+				);	
+		}
+
+		 down = river_d_down[tid] - 1;      
+
+		// Channel flow between river-river segments
+		   river_d_wf_rivflow1[tid] = ChanFlowRiverToRiver(tid, down, ctrl_d,
+#include "river_device_arguments.c" 
+		    );
+			
+		// Subsurface flow between river-river segments
+		left = river_d_leftele[tid] - 1;   //左边的单元编号
+		right = river_d_rightele[tid] - 1; //右边的单元编号
+		effk = 0.5 *
+			(EffKh(left, elem_d_ws_gw[left], 
+#include "elem_device_arguments.c" 
+			       ) +
+			 EffKh(right, elem_d_ws_gw[right], 
+#include "elem_device_arguments.c" 
+			       )
+			 );
+
+		left = river_d_leftele[down] - 1;   //左边的单元编号
+		right = river_d_rightele[down] - 1; //右边的单元编号
+		effk_nabr = 0.5 *
+			(EffKh(left, elem_d_ws_gw[left], 
+#include "elem_device_arguments.c" 
+			       ) +
+			EffKh(right, elem_d_ws_gw[right], 
+#include "elem_device_arguments.c" 
+			      )
+			);
+
+		   river_d_wf_rivflow9[tid] =
+			SubFlowRiverToRiver(effk, effk_nabr, tid, down, 
+#include "river_device_arguments.c" 
+			                    );
+	}
+	
+	else
+	{
+		// Outlet flux
+		  river_d_wf_rivflow1[tid] =
+			OutletFlux(tid, river_d_down[tid],
+#include "river_device_arguments.c" 
+			           );
+
+		/* Note: boundary condition for subsurface element can be changed.
+		* Assumption: no flow condition */
+		  river_d_wf_rivflow9[tid] = 0.0;
+	}
+
+	
+	
+	// Flux between river segments and triangular elements
+	left = river_d_leftele[tid] - 1;    // 第tid段河段左侧单元的编号
+	right = river_d_rightele[tid] - 1;  // 第tid段河段右侧单元的编号
+
+	RiverToElem(tid, left, right, 
+#include "elem_river_device_arguments.c" 		
+	            );  // tid -河段编号; left, right - 单元编号
+
+	// Flux between river channel and subsurface
+	  river_d_wf_rivflow6[tid] =
+		ChanLeak(tid, 
+#include "river_device_arguments.c" 
+		         );
+
+修改为：
+double temp_1 = 0.0, temp_2 = 0.0, temp_3 = 0.0;
+river_d_wf_rivflow0[tid] = (river_d_down[tid] > 0 && river_d_attrib_riverbc_type[tid] != 0) ? 
+           (river_d_wf_rivflow0[tid] + BoundFluxRiver(river_d_attrib_riverbc_type[tid],tid, 
+#include "river_device_arguments.c"                  )
+			) 
+		   : (river_d_wf_rivflow0[tid]);
+		   
+down = (river_d_down[tid] > 0) ? (river_d_down[tid] - 1) : tid;	
+	   
+// Channel flow between river-river segments		   
+temp_1 =  ChanFlowRiverToRiver(tid, down, ctrl_d,
+#include "river_device_arguments.c" 
+		                       );	
+// Outlet flux							  
+temp_2 = OutletFlux(tid, river_d_down[tid],
+#include "river_device_arguments.c" 
+			        );	  	   
+river_d_wf_rivflow1[tid]  =	 (river_d_down[tid] > 0) ? temp_1 : temp_2;	 
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+
+
+

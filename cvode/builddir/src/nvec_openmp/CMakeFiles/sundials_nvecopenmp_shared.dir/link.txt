@@ -1,0 +1,1 @@
+/usr/bin/cc   -fopenmp   -shared -Wl,--enable-auto-import -o cygsundials_nvecopenmp-2.dll -Wl,--out-implib,libsundials_nvecopenmp.dll.a -Wl,--major-image-version,2,--minor-image-version,7 CMakeFiles/sundials_nvecopenmp_shared.dir/nvector_openmp.c.o CMakeFiles/sundials_nvecopenmp_shared.dir/__/sundials/sundials_math.c.o 

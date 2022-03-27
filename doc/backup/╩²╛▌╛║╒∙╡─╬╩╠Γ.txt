@@ -1,0 +1,146 @@
+如果代码计算结果错误，或者相同的输入给出不同的计算结果，说明发生了数据竞争问题(race condition)，
+即代码的最终计算结果依赖于threads/blocks执行的顺序。
+
+避免数据竞争：
+（1）不能假设线程块以某种固定的顺序执行；
+
+（2）不同的线程块之间不能有相互依赖；
+
+（3）核函数执行的最佳方法是：从一个全局数组读取数据，然后将计算结果写入另一个数组；
+
+（4）不要使用相同的读写数组。
+
+
+全局内存的数据竞争：
+（1）当2个或更多的线程，独立地更新全局内存的数值时，常常发生数据竞争；
+
+（2）无法保证线程以何种顺序执行；
+
+（3）无法保证哪个会成功？
+
+（4）一般准则：避免从不同的线程更新相同的全局内存位置；
+
+（5）使用原子操作可避免该问题，但效率问题成为很大的问题！
+
+
+原子操作：
+
+“As of CUDA 8, double-precision atomicAdd() is implemented in CUDA with hardware support in SM_6X (Pascal) GPUs.”
+
+So make sure you compile the code for sm_60 (Tesla P100) or sm_61 (consumer Pascal) or sm_70 (Tesla V100, Titan V) target architecture.
+
+
+
+
+
+例子：
+The code is wrong, and it needs a __syncthreads() call as shown below.
+
+__global__ void sumSingleBlock(int* d)
+{
+  int tid = threadIdx.x;
+
+  // Number of participating threads (tc) halves on each iteration
+  for (int tc = blockDim.x, stepSize = 1; tc > 0; tc >>= 1, stepSize <<= 1)
+  {
+    // Thread must be allowed to write
+    if (tid < tc)
+    {
+      // We need to do A + B, where B is the element following A, so first we 
+      // need to find the position of element A and of element B      
+      int posA = tid * stepSize * 2;
+      int posB = posA + stepSize;
+
+      // Update the value at posA by adding the value at posB to it
+      d[posA] += d[posB];
+    }
+     __syncthreads();
+  }
+  
+例子2：
+I am having a hard time recognizing race conditions ,although I am familiar with the definition.
+It happens when multiple writes happen to the same memory location .It is due to the fact that threads run in parallel and we don’t know which writes first/last.
+
+I have an example where I am comparing cuda, c , openmp:
+
+cuda:
+
+int  index = blockIdx.x * blockDim.x + threadIdx.x;
+
+	if (index < N)
+            c[index] += a[ index ];
+c:
+
+for ( i = 0; i < N; i++ )
+	{	
+	    c[i] += a[ i ];
+		
+	}
+openmp:
+
+#pragma omp parallel for shared(a,c) private( i )
+        for ( i = 0; i < N; i++ )
+	{	
+	    c[i] += a[ i ];		
+	}
+All the above give the same results , so we don’t have race conditions.
+
+But shouldn’t we have ?? Since we are writing on c ( hence,the same memory location ).
+
+Also, if I change in the above codes :
+
+c[i] += a[i] ( or c[index] += a[index] )
+
+with:
+
+r += a[i]  ( r += a[index] )
+Then , the C and openMP implementations gives the same results ,but CUDA gives different.
+
+Shouldn’t we have race conditions here also?
+
+Please, someone explain me this because it drives me crazy!!
+Any directions on the race condition thing !
+
+Thank you!
+
+-------------------------
+c[index] is not “the same location”. The location varies by thread. You may need to review basic c arrays concepts.
+
+Ok, since c[ 0 ] is different from c[ 1 ] … we don’t have race condition because we are writting in different memory locations.
+
+But , there isn’t a problem when we are reading the c[ 0 ] ,then add a[ 0 ] and add it again to c[ 0 ] ,because we just read from c[ 0 ] , right?
+
+( c[ 0 ] = c[ 0 ] + a[ 0 ] )
+I think this is easier example.
+32 times adding should be 32?
+
+Ok, here we are having a race condition since we are writting to the same memory location.
+
+So, looking at my first post , at the second example where I am using variable “r” ( not array as before ) , we are going to have a race condition , right?
+
+But ,then why C and openMP code gives same result and cuda not?
+
+Thank you!
+
+-------------------------------------
+Since the reads from a always accesses indices greater than or equal to i, no iteration of the loop depends on the previous iteration. Therefore, you should be able to do this trivially with double buffering. Create an array b to hold the results, and have each thread run:
+
+i = blockDim.x * blockIdx.x + threadIdx.x;
+
+if (i < n - 3) {
+
+  b[i] = a[i] + a[i+1] + a[i+2] + a[i+3];
+
+}
+No more race condition. To make this code fast on non-Fermi GPUs, you’ll want to use a 1D texture instead of directly accessing a, or perhaps do something like load the relevant section of a into shared memory and then all the threads can access it.
+
+
+
+
+
+
+
+
+
+
+

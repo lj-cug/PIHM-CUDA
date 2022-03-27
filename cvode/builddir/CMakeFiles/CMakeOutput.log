@@ -1,0 +1,263 @@
+The system is: CYGWIN - 3.0.4(0.338/5/3) - i686
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/cc 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.exe"
+
+The C compiler identification is GNU, found in "/home/MM-PIHM/cvode/builddir/CMakeFiles/3.6.2/CompilerIdC/a.exe"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/MM-PIHM/cvode/builddir/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make.exe" "cmTC_63fca/fast"
+/usr/bin/make -f CMakeFiles/cmTC_63fca.dir/build.make CMakeFiles/cmTC_63fca.dir/build
+make[1]: 进入目录“/home/MM-PIHM/cvode/builddir/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_63fca.dir/testCCompiler.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_63fca.dir/testCCompiler.c.o   -c /home/MM-PIHM/cvode/builddir/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_63fca.exe
+/usr/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_63fca.dir/link.txt --verbose=1
+/usr/bin/cc     -Wl,--enable-auto-import  CMakeFiles/cmTC_63fca.dir/testCCompiler.c.o  -o cmTC_63fca.exe -Wl,--out-implib,libcmTC_63fca.dll.a -Wl,--major-image-version,0,--minor-image-version,0  
+make[1]: 离开目录“/home/MM-PIHM/cvode/builddir/CMakeFiles/CMakeTmp”
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/MM-PIHM/cvode/builddir/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make.exe" "cmTC_24b3b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_24b3b.dir/build.make CMakeFiles/cmTC_24b3b.dir/build
+make[1]: 进入目录“/home/MM-PIHM/cvode/builddir/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_24b3b.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_24b3b.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.6.2/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_24b3b.exe
+/usr/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_24b3b.dir/link.txt --verbose=1
+/usr/bin/cc     -Wl,--enable-auto-import -v CMakeFiles/cmTC_24b3b.dir/CMakeCCompilerABI.c.o  -o cmTC_24b3b.exe -Wl,--out-implib,libcmTC_24b3b.dll.a -Wl,--major-image-version,0,--minor-image-version,0   
+使用内建 specs。
+COLLECT_GCC=/usr/bin/cc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/i686-pc-cygwin/7.4.0/lto-wrapper.exe
+目标：i686-pc-cygwin
+配置为：/cygdrive/i/szsz/tmpp/gcc/gcc-7.4.0-1.i686/src/gcc-7.4.0/configure --srcdir=/cygdrive/i/szsz/tmpp/gcc/gcc-7.4.0-1.i686/src/gcc-7.4.0 --prefix=/usr --exec-prefix=/usr --localstatedir=/var --sysconfdir=/etc --docdir=/usr/share/doc/gcc --htmldir=/usr/share/doc/gcc/html -C --build=i686-pc-cygwin --host=i686-pc-cygwin --target=i686-pc-cygwin --without-libiconv-prefix --without-libintl-prefix --libexecdir=/usr/lib --enable-shared --enable-shared-libgcc --enable-static --enable-version-specific-runtime-libs --enable-bootstrap --enable-__cxa_atexit --with-dwarf2 --with-arch=i686 --with-tune=generic --disable-sjlj-exceptions --enable-languages=ada,c,c++,fortran,lto,objc,obj-c++ --enable-graphite --enable-threads=posix --enable-libatomic --enable-libcilkrts --enable-libgomp --enable-libitm --enable-libquadmath --enable-libquadmath-support --disable-libssp --enable-libada --disable-symvers --with-gnu-ld --with-gnu-as --with-cloog-include=/usr/include/cloog-isl --without-libiconv-prefix --without-libintl-prefix --with-system-zlib --enable-linker-build-id --with-default-libstdcxx-abi=gcc4-compatible --enable-libstdcxx-filesystem-ts
+线程模型：posix
+gcc 版本 7.4.0 (GCC) 
+COMPILER_PATH=/usr/lib/gcc/i686-pc-cygwin/7.4.0/:/usr/lib/gcc/i686-pc-cygwin/7.4.0/:/usr/lib/gcc/i686-pc-cygwin/:/usr/lib/gcc/i686-pc-cygwin/7.4.0/:/usr/lib/gcc/i686-pc-cygwin/:/usr/lib/gcc/i686-pc-cygwin/7.4.0/../../../../i686-pc-cygwin/bin/
+LIBRARY_PATH=/usr/lib/gcc/i686-pc-cygwin/7.4.0/:/usr/lib/gcc/i686-pc-cygwin/7.4.0/../../../../i686-pc-cygwin/lib/:/usr/lib/gcc/i686-pc-cygwin/7.4.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_24b3b.exe' '-mtune=generic' '-march=i686'
+ /usr/lib/gcc/i686-pc-cygwin/7.4.0/collect2.exe -plugin /usr/lib/gcc/i686-pc-cygwin/7.4.0/cyglto_plugin.dll -plugin-opt=/usr/lib/gcc/i686-pc-cygwin/7.4.0/lto-wrapper.exe -plugin-opt=-fresolution=/tmp/ccWOWDIO.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lcygwin -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --wrap _Znwj --wrap _Znaj --wrap _ZdlPv --wrap _ZdaPv --wrap _ZnwjRKSt9nothrow_t --wrap _ZnajRKSt9nothrow_t --wrap _ZdlPvRKSt9nothrow_t --wrap _ZdaPvRKSt9nothrow_t -Bdynamic --dll-search-prefix=cyg --large-address-aware --tsaware -o cmTC_24b3b.exe /usr/lib/gcc/i686-pc-cygwin/7.4.0/../../../crt0.o /usr/lib/gcc/i686-pc-cygwin/7.4.0/crtbegin.o -L/usr/lib/gcc/i686-pc-cygwin/7.4.0 -L/usr/lib/gcc/i686-pc-cygwin/7.4.0/../../../../i686-pc-cygwin/lib -L/usr/lib/gcc/i686-pc-cygwin/7.4.0/../../.. --enable-auto-import CMakeFiles/cmTC_24b3b.dir/CMakeCCompilerABI.c.o --out-implib libcmTC_24b3b.dll.a --major-image-version 0 --minor-image-version 0 -lgcc_s -lgcc -lcygwin -ladvapi32 -lshell32 -luser32 -lkernel32 -lgcc_s -lgcc /usr/lib/gcc/i686-pc-cygwin/7.4.0/../../../default-manifest.o /usr/lib/gcc/i686-pc-cygwin/7.4.0/crtend.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_24b3b.exe' '-mtune=generic' '-march=i686'
+make[1]: 离开目录“/home/MM-PIHM/cvode/builddir/CMakeFiles/CMakeTmp”
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld\.exe|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/MM-PIHM/cvode/builddir/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make.exe" "cmTC_24b3b/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_24b3b.dir/build.make CMakeFiles/cmTC_24b3b.dir/build]
+  ignore line: [make[1]: 进入目录“/home/MM-PIHM/cvode/builddir/CMakeFiles/CMakeTmp”]
+  ignore line: [Building C object CMakeFiles/cmTC_24b3b.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc     -o CMakeFiles/cmTC_24b3b.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.6.2/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_24b3b.exe]
+  ignore line: [/usr/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_24b3b.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc     -Wl,--enable-auto-import -v CMakeFiles/cmTC_24b3b.dir/CMakeCCompilerABI.c.o  -o cmTC_24b3b.exe -Wl,--out-implib,libcmTC_24b3b.dll.a -Wl,--major-image-version,0,--minor-image-version,0   ]
+  ignore line: [使用内建 specs。]
+  ignore line: [COLLECT_GCC=/usr/bin/cc]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/i686-pc-cygwin/7.4.0/lto-wrapper.exe]
+  ignore line: [目标：i686-pc-cygwin]
+  ignore line: [配置为：/cygdrive/i/szsz/tmpp/gcc/gcc-7.4.0-1.i686/src/gcc-7.4.0/configure --srcdir=/cygdrive/i/szsz/tmpp/gcc/gcc-7.4.0-1.i686/src/gcc-7.4.0 --prefix=/usr --exec-prefix=/usr --localstatedir=/var --sysconfdir=/etc --docdir=/usr/share/doc/gcc --htmldir=/usr/share/doc/gcc/html -C --build=i686-pc-cygwin --host=i686-pc-cygwin --target=i686-pc-cygwin --without-libiconv-prefix --without-libintl-prefix --libexecdir=/usr/lib --enable-shared --enable-shared-libgcc --enable-static --enable-version-specific-runtime-libs --enable-bootstrap --enable-__cxa_atexit --with-dwarf2 --with-arch=i686 --with-tune=generic --disable-sjlj-exceptions --enable-languages=ada,c,c++,fortran,lto,objc,obj-c++ --enable-graphite --enable-threads=posix --enable-libatomic --enable-libcilkrts --enable-libgomp --enable-libitm --enable-libquadmath --enable-libquadmath-support --disable-libssp --enable-libada --disable-symvers --with-gnu-ld --with-gnu-as --with-cloog-include=/usr/include/cloog-isl --without-libiconv-prefix --without-libintl-prefix --with-system-zlib --enable-linker-build-id --with-default-libstdcxx-abi=gcc4-compatible --enable-libstdcxx-filesystem-ts]
+  ignore line: [线程模型：posix]
+  ignore line: [gcc 版本 7.4.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/i686-pc-cygwin/7.4.0/:/usr/lib/gcc/i686-pc-cygwin/7.4.0/:/usr/lib/gcc/i686-pc-cygwin/:/usr/lib/gcc/i686-pc-cygwin/7.4.0/:/usr/lib/gcc/i686-pc-cygwin/:/usr/lib/gcc/i686-pc-cygwin/7.4.0/../../../../i686-pc-cygwin/bin/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/i686-pc-cygwin/7.4.0/:/usr/lib/gcc/i686-pc-cygwin/7.4.0/../../../../i686-pc-cygwin/lib/:/usr/lib/gcc/i686-pc-cygwin/7.4.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_24b3b.exe' '-mtune=generic' '-march=i686']
+  link line: [ /usr/lib/gcc/i686-pc-cygwin/7.4.0/collect2.exe -plugin /usr/lib/gcc/i686-pc-cygwin/7.4.0/cyglto_plugin.dll -plugin-opt=/usr/lib/gcc/i686-pc-cygwin/7.4.0/lto-wrapper.exe -plugin-opt=-fresolution=/tmp/ccWOWDIO.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lcygwin -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --wrap _Znwj --wrap _Znaj --wrap _ZdlPv --wrap _ZdaPv --wrap _ZnwjRKSt9nothrow_t --wrap _ZnajRKSt9nothrow_t --wrap _ZdlPvRKSt9nothrow_t --wrap _ZdaPvRKSt9nothrow_t -Bdynamic --dll-search-prefix=cyg --large-address-aware --tsaware -o cmTC_24b3b.exe /usr/lib/gcc/i686-pc-cygwin/7.4.0/../../../crt0.o /usr/lib/gcc/i686-pc-cygwin/7.4.0/crtbegin.o -L/usr/lib/gcc/i686-pc-cygwin/7.4.0 -L/usr/lib/gcc/i686-pc-cygwin/7.4.0/../../../../i686-pc-cygwin/lib -L/usr/lib/gcc/i686-pc-cygwin/7.4.0/../../.. --enable-auto-import CMakeFiles/cmTC_24b3b.dir/CMakeCCompilerABI.c.o --out-implib libcmTC_24b3b.dll.a --major-image-version 0 --minor-image-version 0 -lgcc_s -lgcc -lcygwin -ladvapi32 -lshell32 -luser32 -lkernel32 -lgcc_s -lgcc /usr/lib/gcc/i686-pc-cygwin/7.4.0/../../../default-manifest.o /usr/lib/gcc/i686-pc-cygwin/7.4.0/crtend.o]
+    arg [/usr/lib/gcc/i686-pc-cygwin/7.4.0/collect2.exe] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/lib/gcc/i686-pc-cygwin/7.4.0/cyglto_plugin.dll] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc/i686-pc-cygwin/7.4.0/lto-wrapper.exe] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccWOWDIO.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lcygwin] ==> ignore
+    arg [-plugin-opt=-pass-through=-ladvapi32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lshell32] ==> ignore
+    arg [-plugin-opt=-pass-through=-luser32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_Znwj] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_Znaj] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZdlPv] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZdaPv] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZnwjRKSt9nothrow_t] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZnajRKSt9nothrow_t] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZdlPvRKSt9nothrow_t] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZdaPvRKSt9nothrow_t] ==> ignore
+    arg [-Bdynamic] ==> ignore
+    arg [--dll-search-prefix=cyg] ==> ignore
+    arg [--large-address-aware] ==> ignore
+    arg [--tsaware] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_24b3b.exe] ==> ignore
+    arg [/usr/lib/gcc/i686-pc-cygwin/7.4.0/../../../crt0.o] ==> ignore
+    arg [/usr/lib/gcc/i686-pc-cygwin/7.4.0/crtbegin.o] ==> ignore
+    arg [-L/usr/lib/gcc/i686-pc-cygwin/7.4.0] ==> dir [/usr/lib/gcc/i686-pc-cygwin/7.4.0]
+    arg [-L/usr/lib/gcc/i686-pc-cygwin/7.4.0/../../../../i686-pc-cygwin/lib] ==> dir [/usr/lib/gcc/i686-pc-cygwin/7.4.0/../../../../i686-pc-cygwin/lib]
+    arg [-L/usr/lib/gcc/i686-pc-cygwin/7.4.0/../../..] ==> dir [/usr/lib/gcc/i686-pc-cygwin/7.4.0/../../..]
+    arg [--enable-auto-import] ==> ignore
+    arg [CMakeFiles/cmTC_24b3b.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [--out-implib] ==> ignore
+    arg [libcmTC_24b3b.dll.a] ==> ignore
+    arg [--major-image-version] ==> ignore
+    arg [0] ==> ignore
+    arg [--minor-image-version] ==> ignore
+    arg [0] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lcygwin] ==> lib [cygwin]
+    arg [-ladvapi32] ==> lib [advapi32]
+    arg [-lshell32] ==> lib [shell32]
+    arg [-luser32] ==> lib [user32]
+    arg [-lkernel32] ==> lib [kernel32]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/usr/lib/gcc/i686-pc-cygwin/7.4.0/../../../default-manifest.o] ==> ignore
+    arg [/usr/lib/gcc/i686-pc-cygwin/7.4.0/crtend.o] ==> ignore
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  collapse library dir [/usr/lib/gcc/i686-pc-cygwin/7.4.0] ==> [/usr/lib/gcc/i686-pc-cygwin/7.4.0]
+  collapse library dir [/usr/lib/gcc/i686-pc-cygwin/7.4.0/../../../../i686-pc-cygwin/lib] ==> [/usr/i686-pc-cygwin/lib]
+  collapse library dir [/usr/lib/gcc/i686-pc-cygwin/7.4.0/../../..] ==> [/usr/lib]
+  implicit libs: [cygwin;advapi32;shell32;user32;kernel32]
+  implicit dirs: [/usr/lib/gcc/i686-pc-cygwin/7.4.0;/usr/i686-pc-cygwin/lib;/usr/lib]
+  implicit fwks: []
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: /home/MM-PIHM/cvode/builddir/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make.exe" "cmTC_41389/fast"
+/usr/bin/make -f CMakeFiles/cmTC_41389.dir/build.make CMakeFiles/cmTC_41389.dir/build
+make[1]: 进入目录“/home/MM-PIHM/cvode/builddir/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_41389.dir/feature_tests.c.o
+/usr/bin/cc    -std=c11 -o CMakeFiles/cmTC_41389.dir/feature_tests.c.o   -c /home/MM-PIHM/cvode/builddir/CMakeFiles/feature_tests.c
+Linking C executable cmTC_41389.exe
+/usr/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_41389.dir/link.txt --verbose=1
+/usr/bin/cc     -Wl,--enable-auto-import  CMakeFiles/cmTC_41389.dir/feature_tests.c.o  -o cmTC_41389.exe -Wl,--out-implib,libcmTC_41389.dll.a -Wl,--major-image-version,0,--minor-image-version,0  
+make[1]: 离开目录“/home/MM-PIHM/cvode/builddir/CMakeFiles/CMakeTmp”
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:1c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: /home/MM-PIHM/cvode/builddir/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make.exe" "cmTC_0e855/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0e855.dir/build.make CMakeFiles/cmTC_0e855.dir/build
+make[1]: 进入目录“/home/MM-PIHM/cvode/builddir/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_0e855.dir/feature_tests.c.o
+/usr/bin/cc    -std=c99 -o CMakeFiles/cmTC_0e855.dir/feature_tests.c.o   -c /home/MM-PIHM/cvode/builddir/CMakeFiles/feature_tests.c
+Linking C executable cmTC_0e855.exe
+/usr/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_0e855.dir/link.txt --verbose=1
+/usr/bin/cc     -Wl,--enable-auto-import  CMakeFiles/cmTC_0e855.dir/feature_tests.c.o  -o cmTC_0e855.exe -Wl,--out-implib,libcmTC_0e855.dll.a -Wl,--major-image-version,0,--minor-image-version,0  
+make[1]: 离开目录“/home/MM-PIHM/cvode/builddir/CMakeFiles/CMakeTmp”
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: /home/MM-PIHM/cvode/builddir/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make.exe" "cmTC_fa511/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fa511.dir/build.make CMakeFiles/cmTC_fa511.dir/build
+make[1]: 进入目录“/home/MM-PIHM/cvode/builddir/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_fa511.dir/feature_tests.c.o
+/usr/bin/cc    -std=c90 -o CMakeFiles/cmTC_fa511.dir/feature_tests.c.o   -c /home/MM-PIHM/cvode/builddir/CMakeFiles/feature_tests.c
+Linking C executable cmTC_fa511.exe
+/usr/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_fa511.dir/link.txt --verbose=1
+/usr/bin/cc     -Wl,--enable-auto-import  CMakeFiles/cmTC_fa511.dir/feature_tests.c.o  -o cmTC_fa511.exe -Wl,--out-implib,libcmTC_fa511.dll.a -Wl,--major-image-version,0,--minor-image-version,0  
+make[1]: 离开目录“/home/MM-PIHM/cvode/builddir/CMakeFiles/CMakeTmp”
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:0c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:0c_variadic_macros
+Determining if the _POSIX_TIMERS exist passed with the following output:
+Change Dir: /home/MM-PIHM/cvode/builddir/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make.exe" "cmTC_8d131/fast"
+/usr/bin/make -f CMakeFiles/cmTC_8d131.dir/build.make CMakeFiles/cmTC_8d131.dir/build
+make[1]: 进入目录“/home/MM-PIHM/cvode/builddir/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_8d131.dir/CheckSymbolExists.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_8d131.dir/CheckSymbolExists.c.o   -c /home/MM-PIHM/cvode/builddir/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_8d131.exe
+/usr/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_8d131.dir/link.txt --verbose=1
+/usr/bin/cc     -Wl,--enable-auto-import  CMakeFiles/cmTC_8d131.dir/CheckSymbolExists.c.o  -o cmTC_8d131.exe -Wl,--out-implib,libcmTC_8d131.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lrt 
+make[1]: 离开目录“/home/MM-PIHM/cvode/builddir/CMakeFiles/CMakeTmp”
+
+File /home/MM-PIHM/cvode/builddir/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <unistd.h>
+#include <time.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _POSIX_TIMERS
+  return ((int*)(&_POSIX_TIMERS))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Performing C SOURCE FILE Test OpenMP_FLAG_DETECTED succeeded with the following output:
+Change Dir: /home/MM-PIHM/cvode/builddir/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make.exe" "cmTC_8f68a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_8f68a.dir/build.make CMakeFiles/cmTC_8f68a.dir/build
+make[1]: 进入目录“/home/MM-PIHM/cvode/builddir/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_8f68a.dir/src.c.o
+/usr/bin/cc    -DOpenMP_FLAG_DETECTED -fopenmp   -o CMakeFiles/cmTC_8f68a.dir/src.c.o   -c /home/MM-PIHM/cvode/builddir/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_8f68a.exe
+/usr/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_8f68a.dir/link.txt --verbose=1
+/usr/bin/cc   -DOpenMP_FLAG_DETECTED -fopenmp  -Wl,--enable-auto-import  CMakeFiles/cmTC_8f68a.dir/src.c.o  -o cmTC_8f68a.exe -Wl,--out-implib,libcmTC_8f68a.dll.a -Wl,--major-image-version,0,--minor-image-version,0  
+make[1]: 离开目录“/home/MM-PIHM/cvode/builddir/CMakeFiles/CMakeTmp”
+
+Source file was:
+
+#include <omp.h>
+int main() {
+#ifdef _OPENMP
+  return 0;
+#else
+  breaks_on_purpose
+#endif
+}
+

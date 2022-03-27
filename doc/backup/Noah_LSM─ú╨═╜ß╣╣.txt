@@ -1,0 +1,80 @@
+void Noah(){
+	CalHum    // No subroutines
+	FrozRain  // No subroutines
+	
+	SFlx
+}
+
+// 10个子函数
+SFlx(){
+    CSnow      // No subroutines    declared!!!
+	SnFrac     // No subroutines    declared!!!
+    AlCalc     // No subroutines    declared!!!
+	TDfCnd     // No subroutines    declared!!!
+	Snowz0     // No subroutines    declared!!!
+	SfcDifOff  // No subroutines    declared!!!
+	Penman     // No subroutines    declared!!!
+	CanRes     // No subroutines    declared!!!
+	
+	NoPac      //  declared!!!
+	SnoPac    //   declared!!!
+}
+
+NoPac(){
+	Evapo   // declared!!!
+	PcpDrp  // declared!!!
+	TDfCnd      // declared!!!
+	ShFlx      //  declared!!!
+}
+
+SnoPac(){
+	Evapo     // declared!!!
+	PcpDrp     // No subroutines   declared!!!
+	ShFlx      // declared!!!
+	SnowPack   // No subroutines
+}
+
+
+
+Evapo(){
+	DEvap    // No subroutines
+	Transp   // No subroutines
+}
+
+ShFlx(){
+	HRT
+	HStep   // 包含Rosr12 without subroutines
+}
+
+HRT(){
+	TBnd    // No subroutines
+	TmpAvg  // No subroutines
+	SnkSrc  // 包含FrH2O without subroutines    declared!!!
+	TDfCnd  // No subroutines
+}
+
+//-------------------------------------------------------------
+void NoahHydrol(){  // 更新Noah模型中的相关状态变量值
+	FindWaterTable();
+	SmFlx();
+}
+
+SmFlx(){
+	SRT();
+	SStep();
+}
+
+SRT(){
+	WDfCnd();
+}
+
+SStep(){
+	Rosr12();
+	AdjSmProf();
+}
+
+
+
+
+
+

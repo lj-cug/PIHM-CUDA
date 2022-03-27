@@ -1,0 +1,13 @@
+realtype *river_d_topo_area,
+realtype *river_d_matl_porosity,
+realtype *river_d_wf_rivflow0,
+realtype *river_d_wf_rivflow1,
+realtype *river_d_wf_rivflow2,
+realtype *river_d_wf_rivflow3,
+realtype *river_d_wf_rivflow4,
+realtype *river_d_wf_rivflow5,
+realtype *river_d_wf_rivflow6,
+realtype *river_d_wf_rivflow7,
+realtype *river_d_wf_rivflow8,
+realtype *river_d_wf_rivflow9,
+realtype *river_d_wf_rivflow10
